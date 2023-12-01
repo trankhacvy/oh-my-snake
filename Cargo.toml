@@ -1,0 +1,29 @@
+[package]
+name = "snake"
+version = "0.1.0"
+authors = ["KhacVy <khacvy93@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+bevy = "0.12.0"
+bevy_asset_loader = "0.18.0"
+bevy_xpbd_2d = "0.3.2"
+enum-iterator = "1.4.1"
+rand = "0.8.5"
+
+
+[dependencies.web-sys]
+version = "0.3.60"
+features = ['Window']
+
+[profile.release]
+opt-level = 's'
+lto = "thin"
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
